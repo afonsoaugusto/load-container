@@ -19,7 +19,7 @@ RUN CGO_ENABLED=0 GOOS=linux go build -a -o out . \
 
 CMD [ "/build/out" ]
 
-FROM alpine:3.11
+FROM alpine:3.13.5
 COPY --from=builder /build/out .
 COPY loadserver.sh /usr/bin/
 RUN apk add --no-cache stress-ng && \
